@@ -3,7 +3,6 @@ Rails.application.routes.draw do
   get 'home/front'
 
 Rails.application.routes.draw do
-  devise_for :users
   root to: 'home#front'
 end
 
