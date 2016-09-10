@@ -30,6 +30,17 @@ class PostsController < ApplicationController
     end
   end
 
+  def create
+    @post = Post.new(post_params) do |post|
+      post.user = current_user
+  end
+    if @post.save
+      redirect_to root_path
+    else
+      redirect_to root_path, notice: @post.errors.full_messages.first
+    end
+  end
+
   # PATCH/PUT /posts/1
   def update
     if @post.update(post_params)
