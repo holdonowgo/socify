@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
+  resources :posts
   devise_for :users
   get 'home/front'
 
 Rails.application.routes.draw do
+  resources :posts
   root to: 'home#front'
 end
 
